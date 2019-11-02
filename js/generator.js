@@ -55,7 +55,28 @@ function generate() {
     $("#passphrase_field").val(sentence);
 }
 
+function evaluate() {
+    var pw = $("#passphrase_field").val();
+    var result = zxcvbn(pw);
+    var disp_time = result.crack_times_display.offline_fast_hashing_1e10_per_second;
+    var feedback = ["This password would take " + disp_time + " to crack."];
+    if (result.feedback.warning) {
+        feedback.push(result.feedback.warning);
+    }
+    if (result.feedback.suggestions) {
+        feedback = feedback.concat(result.feedback.suggestions);
+    }
+    for (var i = 0; i < feedback.length; i++) {
+        if (feedback[i][feedback[i].length - 1] != ".") {
+            feedback[i] += ".";
+        }
+    }
+    var msg = feedback.join(" ");
+    alert(msg);
+}
+
 window.onload = function() {
     generate();
     $("#generate_button").on("click", generate);
+    $("#evaluate_button").on("click", evaluate);
 }
