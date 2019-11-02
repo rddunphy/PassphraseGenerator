@@ -91,8 +91,14 @@ function evaluate() {
     alert(msg);
 }
 
+function copy_to_clipboard() {
+    $("#passphrase_field").select();
+    document.execCommand("copy");
+}
+
 window.onload = function() {
     generate();
     $("#generate_button").on("click", generate);
     $("#evaluate_button").on("click", evaluate);
+    $("#copy_button").on("click", copy_to_clipboard);
 }
