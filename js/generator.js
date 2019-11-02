@@ -67,7 +67,7 @@ function generate() {
     words.push(verb(subj_pl, v_past));
     words = words.concat(noun_phrase(obj_pl, obj_def));
     words = correct_case(words);
-    var sentence = words.join(" ") + ".";
+    var sentence = words.join($("input[name=separator]").val()) + $("input[name=terminator]").val();
     $("#passphrase_field").val(sentence);
 }
 

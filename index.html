@@ -6,7 +6,7 @@
     </head>
     <body>
         <div>
-            <input type="text" id="passphrase_field" value="text" size=50 maxlength="100"></input>
+            <input type="text" id="passphrase_field" value="text" size=50 maxlength=100></input>
             <br>
             <button type="button" id="generate_button">Generate</button>
             <button type="button" id="evaluate_button">Evaluate</button>
@@ -15,6 +15,10 @@
             <input type="radio" name="case" value="sentence" checked> Sentence case</input>
             <input type="radio" name="case" value="title"> Title Case</input>
             <input type="radio" name="case" value="upper"> UPPER CASE</input>
+            <br>
+            Separator: <input type="text" name="separator" value=" " size=2 maxlength=10></input>
+            <br>
+            Terminator: <input type="text" name="terminator" value="." size=2 maxlength=10></input>
         </div>
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/data/nouns.js"></script>
