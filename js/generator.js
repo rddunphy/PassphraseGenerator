@@ -41,6 +41,22 @@ function verb(plural, past) {
     return verb[1];
 }
 
+function correct_case(words) {
+    var c = $("input[name=case]:checked").val();
+    if (c == "sentence") {
+        words[0] = words[0][0].toUpperCase() + words[0].slice(1);
+    } else if (c == "title") {
+        for (var i = 0; i < words.length; i++) {
+            words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+        }
+    } else if (c == "upper") {
+        for (var i = 0; i < words.length; i++) {
+            words[i] = words[i].toUpperCase();
+        }
+    }
+    return words;
+}
+
 function generate() {
     var subj_pl = random_bool();
     var subj_def = random_bool();
@@ -50,8 +66,8 @@ function generate() {
     var words = noun_phrase(subj_pl, subj_def);
     words.push(verb(subj_pl, v_past));
     words = words.concat(noun_phrase(obj_pl, obj_def));
-    words[0] = words[0][0].toUpperCase() + words[0].slice(1);
-    var sentence = words.join(" ") + "."
+    words = correct_case(words);
+    var sentence = words.join(" ") + ".";
     $("#passphrase_field").val(sentence);
 }
 
