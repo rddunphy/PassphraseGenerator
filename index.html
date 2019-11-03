@@ -7,16 +7,23 @@
         <meta name="description" content="A grammatical passphrase generator">
         <meta name="author" content="R. David Dunphy">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
             <main role="main" class="inner cover">
-                <input type="text" id="passphrase_field" value="text" maxlength=100 class="form-control"></input>
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary" type="button" id="generate_button"><span class="fas fa-sync"></span></button>
+                    </div>
+                    <input type="text" id="passphrase_field" value="text" maxlength=100 class="form-control"></input>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="copy_button"><span class="fas fa-copy"></span></button>
+                    </div>
+                </div>
                 <br>
-                <button type="button" class="btn btn-default" id="generate_button">Generate</button>
                 <button type="button" class="btn btn-default" id="evaluate_button">Evaluate</button>
-                <button type="button" class="btn btn-default" id="copy_button">Copy to clipboard</button>
                 <br>
                 <div id="advanced" class="row">
                     <div class="col-md-6">
