@@ -2,26 +2,66 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Passphrase generator</title>
+        <meta name="description" content="A grammatical passphrase generator">
+        <meta name="author" content="R. David Dunphy">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <div>
-            <input type="text" id="passphrase_field" value="text" size=50 maxlength=100></input>
-            <br>
-            <button type="button" id="generate_button">Generate</button>
-            <button type="button" id="evaluate_button">Evaluate</button>
-            <button type="button" id="copy_button">Copy to clipboard</button>
-            <br>
-            <input type="radio" name="case" value="lower"> lower case</input>
-            <input type="radio" name="case" value="sentence" checked> Sentence case</input>
-            <input type="radio" name="case" value="title"> Title Case</input>
-            <input type="radio" name="case" value="upper"> UPPER CASE</input>
-            <br>
-            Separator: <input type="text" name="separator" value=" " size=2 maxlength=10></input>
-            <br>
-            Terminator: <input type="text" name="terminator" value="." size=2 maxlength=10></input>
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <main role="main" class="inner cover">
+                <input type="text" id="passphrase_field" value="text" maxlength=100 class="form-control"></input>
+                <br>
+                <button type="button" class="btn btn-default" id="generate_button">Generate</button>
+                <button type="button" class="btn btn-default" id="evaluate_button">Evaluate</button>
+                <button type="button" class="btn btn-default" id="copy_button">Copy to clipboard</button>
+                <br>
+                <div id="advanced" class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-9 col-form-label">Separator</label>
+                            <div class="col-sm-3">
+                                <input type="text" name="separator" value=" " maxlength=10 class="form-control"></input>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-9 col-form-label">Terminator</label>
+                            <div class="col-sm-3">
+                                <input type="text" name="terminator" value="." maxlength=10 class="form-control"></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="case" value="lower" id="case_lower"></input>
+                            <label class="form-check-label" for="case_lower">lower case</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="case" value="sentence" id="case_sentence" checked></input>
+                            <label class="form-check-label" for="case_sentence">Sentence case</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="case" value="title" id="case_title"></input>
+                            <label class="form-check-label" for="case_title">Title Case</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="case" value="upper" id="case_upper"></input>
+                            <label class="form-check-label" for="case_upper">UPPER CASE</label>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="mastfoot mt-auto text-center">
+                <div class="inner">
+                    <p>Hosted by <a href="https://github.com/rddunphy/PassphraseGenerator">Github</a>.</p>
+                </div>
+            </footer>
         </div>
         <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/data/nouns.js"></script>
         <script src="js/data/verbs.js"></script>
         <script src="js/data/adjectives.js"></script>
