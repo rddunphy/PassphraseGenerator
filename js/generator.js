@@ -69,6 +69,7 @@ function generate() {
     words = correctCase(words);
     var sentence = words.join($("input[name=separator]").val()) + $("input[name=terminator]").val();
     $("#passphrase_field").val(sentence);
+    $("#character_count").html(sentence.length + " characters");
 }
 
 function evaluate() {
@@ -101,4 +102,12 @@ window.onload = function() {
     $("#generate_button").on("click", generate);
     $("#evaluate_button").on("click", evaluate);
     $("#copy_button").on("click", copyToClipboard);
+    $("#faq_link").on("click", function() {
+        $("#faq").collapse("toggle");
+        $("#options").collapse("hide");
+    });
+    $("#options_link").on("click", function() {
+        $("#options").collapse("toggle");
+        $("#faq").collapse("hide");
+    })
 }

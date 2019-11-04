@@ -13,19 +13,25 @@
     <body>
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
             <main role="main" class="inner cover">
-                <div class="input-group input-group-lg">
-                    <div class="input-group-prepend">
-                    <button class="btn btn-outline-secondary" type="button" id="generate_button"><span class="fas fa-sync"></span></button>
-                    </div>
-                    <input type="text" id="passphrase_field" value="text" maxlength=100 class="form-control text-center"></input>
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="copy_button"><span class="fas fa-copy"></span></button>
+                <div class="row">
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary" type="button" id="generate_button"><span class="fas fa-sync"></span></button>
+                        </div>
+                        <input type="text" id="passphrase_field" value="text" maxlength=100 class="form-control text-center"></input>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="copy_button"><span class="fas fa-copy"></span></button>
+                        </div>
                     </div>
                 </div>
-                <br>
-                <button type="button" class="btn btn-default" id="evaluate_button">Evaluate</button>
-                <br>
-                <div id="advanced" class="row">
+
+                <div class="row" id="link_row">
+                    <div class="col-md-4"><span id="character_count"></span></div>
+                    <div class="col-md-4 text-center"><a href="javascript:;" id="options_link">Options</a></div>
+                    <div class="col-md-4 text-right"><a href="javascript:;" id="faq_link">Wait, what?</a></div>
+                </div>
+
+                <div id="options" class="collapse"><div class="card card-body"><div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-9 col-form-label">Separator</label>
@@ -58,7 +64,18 @@
                             <label class="form-check-label" for="case_upper">UPPER CASE</label>
                         </div>
                     </div>
-                </div>
+                </div></div></div>
+
+                <div id="faq" class="collapse"><div class="card card-body">
+                    <h4 class="card-title">FAQ</h4>
+
+                    <h5>Why grammatically correct?</h5>
+                    <p>Sequences of words are easier to remember when they form sentences, even if those sentences are nonsensical.</p>
+
+                    <h5>Doesn't that make them less secure?</h5>
+                    <p>Well, yes... but it turns out not by much.</p>
+                </div></div>
+
             </main>
 
             <footer class="mastfoot mt-auto text-center">
