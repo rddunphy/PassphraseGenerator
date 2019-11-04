@@ -26,10 +26,20 @@
                 </div>
 
                 <div class="row" id="link_row">
-                    <div class="col-md-4"><span id="character_count"></span></div>
+                    <div class="col-md-4"><a href="javascript:;" id="eval_link"><span class="character_count"></span> characters</a></div>
                     <div class="col-md-4 text-center"><a href="javascript:;" id="options_link">Options</a></div>
                     <div class="col-md-4 text-right"><a href="javascript:;" id="faq_link">Wait, what?</a></div>
                 </div>
+
+                <div id="evaluation" class="collapse"><div class="card card-body"><div class="row">
+                    <div class="col-md-6">
+                        <p>This password would take <span id="time_to_crack"></span> to crack, according to <a href="https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/wheeler">zxcvbn</a> by Dropbox.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Characters: <span class="character_count"></p>
+                        <p>~<span id="entropy"></span> bits of entropy</p>
+                    </div>
+                </div></div></div>
 
                 <div id="options" class="collapse"><div class="card card-body"><div class="row">
                     <div class="col-md-6">

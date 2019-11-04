@@ -69,7 +69,25 @@ function generate() {
     words = correctCase(words);
     var sentence = words.join($("input[name=separator]").val()) + $("input[name=terminator]").val();
     $("#passphrase_field").val(sentence);
-    $("#character_count").html(sentence.length + " characters");
+    $(".character_count").html(sentence.length);
+    $("#time_to_crack").html(timeToCrack());
+    $("#entropy").html(entropy());
+}
+
+function entropy() {
+    var n_noun = 2;
+    var bits_per_noun = 12;
+    var n_adj = 2;
+    var bits_per_adj = 9;
+    var n_verb = 1;
+    var bits_per_verb = 10;
+    return n_noun * bits_per_noun + n_adj * bits_per_adj + n_verb * bits_per_verb;
+}
+
+function timeToCrack() {
+    var pw = $("#passphrase_field").val();
+    var result = zxcvbn(pw);
+    return result.crack_times_display.offline_fast_hashing_1e10_per_second;
 }
 
 function evaluate() {
@@ -89,7 +107,7 @@ function evaluate() {
         }
     }
     var msg = feedback.join(" ");
-    alert(msg);
+    return msg;
 }
 
 function copyToClipboard() {
@@ -105,9 +123,16 @@ window.onload = function() {
     $("#faq_link").on("click", function() {
         $("#faq").collapse("toggle");
         $("#options").collapse("hide");
+        $("#evaluation").collapse("hide");
     });
     $("#options_link").on("click", function() {
         $("#options").collapse("toggle");
         $("#faq").collapse("hide");
-    })
+        $("#evaluation").collapse("hide");
+    });
+    $("#eval_link").on("click", function() {
+        $("#evaluation").collapse("toggle");
+        $("#faq").collapse("hide");
+        $("#options").collapse("hide");
+    });
 }
