@@ -1,11 +1,3 @@
-function randomChoice(list) {
-    return list[Math.floor(Math.random() * list.length)];
-}
-
-function randomBool() {
-    return Math.random() >= 0.5;
-}
-
 function article(plural, definite, vowelSound) {
     if (definite) {
         return "the";
