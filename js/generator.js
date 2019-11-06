@@ -61,12 +61,9 @@ function generate() {
     words = correctCase(words);
     var sentence = words.join($("input[name=separator]").val()) + $("input[name=terminator]").val();
     $("#passphrase_field").val(sentence);
-    $(".character_count").html(sentence.length);
-    $("#time_to_crack").html(timeToCrack());
-    $("#entropy").html(entropy());
 }
 
-function entropy() {
+function entropy(pw) {
     var n_noun = 2;
     var bits_per_noun = 12;
     var n_adj = 2;
@@ -76,30 +73,31 @@ function entropy() {
     return n_noun * bits_per_noun + n_adj * bits_per_adj + n_verb * bits_per_verb;
 }
 
-function timeToCrack() {
-    var pw = $("#passphrase_field").val();
+function timeToCrack(pw) {
     var result = zxcvbn(pw);
     return result.crack_times_display.offline_fast_hashing_1e10_per_second;
 }
 
 function evaluate() {
     var pw = $("#passphrase_field").val();
-    var result = zxcvbn(pw);
-    var dispTime = result.crack_times_display.offline_fast_hashing_1e10_per_second;
-    var feedback = ["This password would take " + dispTime + " to crack."];
-    if (result.feedback.warning) {
-        feedback.push(result.feedback.warning);
-    }
-    if (result.feedback.suggestions) {
-        feedback = feedback.concat(result.feedback.suggestions);
-    }
-    for (var i = 0; i < feedback.length; i++) {
-        if (feedback[i][feedback[i].length - 1] != ".") {
-            feedback[i] += ".";
-        }
-    }
-    var msg = feedback.join(" ");
-    return msg;
+    $(".character_count").html(pw.length);
+    $("#time_to_crack").html(timeToCrack(pw));
+    $("#entropy").html(entropy(pw));
+
+    // var result = zxcvbn(pw);
+    // var feedback = [];
+    // if (result.feedback.warning) {
+    //     feedback.push(result.feedback.warning);
+    // }
+    // if (result.feedback.suggestions) {
+    //     feedback = feedback.concat(result.feedback.suggestions);
+    // }
+    // for (var i = 0; i < feedback.length; i++) {
+    //     if (feedback[i][feedback[i].length - 1] != ".") {
+    //         feedback[i] += ".";
+    //     }
+    // }
+    // var msg = feedback.join(" ");
 }
 
 function copyToClipboard() {
@@ -108,9 +106,7 @@ function copyToClipboard() {
 }
 
 window.onload = function() {
-    generate();
     $("#generate_button").on("click", generate);
-    $("#evaluate_button").on("click", evaluate);
     $("#copy_button").on("click", copyToClipboard);
     $("#faq_link").on("click", function() {
         $("#faq").collapse("toggle");
@@ -127,4 +123,7 @@ window.onload = function() {
         $("#faq").collapse("hide");
         $("#options").collapse("hide");
     });
+    $("#passphrase_field").on("input", evaluate);
+    generate();
+    evaluate();
 }
