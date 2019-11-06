@@ -64,41 +64,29 @@ function generate() {
     evaluate();
 }
 
-function entropy(pw) {
-    var n_noun = 2;
-    var bits_per_noun = 12;
-    var n_adj = 2;
-    var bits_per_adj = 9;
-    var n_verb = 1;
-    var bits_per_verb = 10;
-    return n_noun * bits_per_noun + n_adj * bits_per_adj + n_verb * bits_per_verb;
-}
-
-function timeToCrack(pw) {
-    var result = zxcvbn(pw);
-    return result.crack_times_display.offline_fast_hashing_1e10_per_second;
-}
-
 function evaluate() {
     var pw = $("#passphrase_field").val();
-    $(".character_count").html(pw.length);
-    $("#time_to_crack").html(timeToCrack(pw));
-    $("#entropy").html(entropy(pw));
-
-    // var result = zxcvbn(pw);
-    // var feedback = [];
-    // if (result.feedback.warning) {
-    //     feedback.push(result.feedback.warning);
-    // }
-    // if (result.feedback.suggestions) {
-    //     feedback = feedback.concat(result.feedback.suggestions);
-    // }
-    // for (var i = 0; i < feedback.length; i++) {
-    //     if (feedback[i][feedback[i].length - 1] != ".") {
-    //         feedback[i] += ".";
-    //     }
-    // }
-    // var msg = feedback.join(" ");
+    $("#character_count").html(pw.length);
+    var result = zxcvbn(pw);
+    $("#time_to_crack").html(result.crack_times_display.offline_fast_hashing_1e10_per_second);
+    var feedback = [];
+    if (result.feedback.warning) {
+        feedback.push(result.feedback.warning);
+    }
+    if (result.feedback.suggestions) {
+        feedback = feedback.concat(result.feedback.suggestions);
+    }
+    if (feedback.length > 0) {
+        for (var i = 0; i < feedback.length; i++) {
+            if (feedback[i][feedback[i].length - 1] != ".") {
+                feedback[i] += ".";
+            }
+        }
+        $("#feedback_paragraph").html(feedback.join(" "));
+        $("#feedback_paragraph").show();
+    } else {
+        $("#feedback_paragraph").hide();
+    }
 }
 
 function copyToClipboard() {
