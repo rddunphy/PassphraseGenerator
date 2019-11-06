@@ -61,6 +61,7 @@ function generate() {
     words = correctCase(words);
     var sentence = words.join($("input[name=separator]").val()) + $("input[name=terminator]").val();
     $("#passphrase_field").val(sentence);
+    evaluate();
 }
 
 function entropy(pw) {
@@ -125,5 +126,4 @@ window.onload = function() {
     });
     $("#passphrase_field").on("input", evaluate);
     generate();
-    evaluate();
 }
