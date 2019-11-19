@@ -1,5 +1,5 @@
-/* 
- * These are a series of simple utility functions for generating random 
+/*
+ * These are a series of simple utility functions for generating random
  * outputs using window.crypto or window.msCrypto if available, which
  * unlike Math.random are cryptographically secure.
  */
@@ -24,7 +24,7 @@ function random() {
         // Only if cryptographically secure generator is not available
         // (this should never happen in up-to-date browsers)
         if (!window.cryptoWarningDisplayed) {
-            console.warn("window.crypto and window.msCrypto not available" 
+            console.warn("window.crypto and window.msCrypto not available"
                          + " - using Math.random instead");
             // To avoid spamming the console
             window.cryptoWarningDisplayed = true;
@@ -63,6 +63,34 @@ function randomRange(min, max) {
  */
 function randomChoice(list) {
     return list[randomInt(list.length)];
+}
+
+
+/*
+ * n random elements from a list, without replacement
+ */
+function randomChoices(list, n) {
+    if (n > list.length) {
+        n = list.length;
+    }
+    if (n < 1) {
+        return [];
+    }
+    var choices = [];
+    var i;
+    while (choices.length < n) {
+        i = randomInt(list.length);
+        choices.push(list.splice(i, 1)[0]);
+    }
+    return choices;
+}
+
+
+/*
+ * Random permutation of a list
+ */
+function randomPermutation(list) {
+    return randomChoice(list, list.length);
 }
 
 

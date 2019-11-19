@@ -11,18 +11,24 @@ function article(plural, definite, vowelSound) {
     return "a";
 }
 
-function nounPhrase(plural, definite) {
+function nounPhrase(plural, definite, useAdj) { // TODO wrong indef art when no adj
     var adj_l = randomChoice(adjectives);
     var adj = adj_l[0];
     var art = article(plural, definite, adj_l[1]);
     var noun = randomChoice(nouns)[plural ? 1 : 0];
-    if (art != "") {
-        return [art, adj, noun];
+    if (useAdj) {
+        if (art != "") {
+            return [art, adj, noun];
+        }
+        return [adj, noun];
     }
-    return [adj, noun];
+    if (art != "") {
+        return [art, noun];
+    }
+    return [noun];
 }
 
-function verb(plural, past) {
+function verbPhrase(plural, past, useAdv) {
     var verb = randomChoice(verbs);
     if (past) {
         return verb[2];
@@ -49,15 +55,21 @@ function correctCase(words) {
     return words;
 }
 
+function getAdjPositions() {
+    var nWords = $("input[name=words]").val();
+    return randomChoices([1, 2, 3], nWords - 3);
+}
+
 function generate() {
-    var subj_pl = randomBool();
-    var subj_def = randomBool();
-    var obj_pl = randomBool();
-    var obj_def = randomBool();
-    var v_past = randomBool();
-    var words = nounPhrase(subj_pl, subj_def);
-    words.push(verb(subj_pl, v_past));
-    words = words.concat(nounPhrase(obj_pl, obj_def));
+    var adjPos = getAdjPositions();
+    var subjPl = randomBool();
+    var subjDef = randomBool();
+    var objPl = randomBool();
+    var objDef = randomBool();
+    var vPast = randomBool();
+    var words = nounPhrase(subjPl, subjDef, adjPos.includes(0));
+    words.push(verbPhrase(subjPl, vPast, adjPos.includes(1)));
+    words = words.concat(nounPhrase(objPl, objDef, adjPos.includes(2)));
     words = correctCase(words);
     var sentence = words.join($("input[name=separator]").val()) + $("input[name=terminator]").val();
     $("#passphrase_field").val(sentence);
