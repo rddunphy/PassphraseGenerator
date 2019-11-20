@@ -33,7 +33,7 @@ function nounPhrase(plural, definite, useAdj) {
     return [noun];
 }
 
-function verbPhrase(plural, past, useAdv) {
+function verbPhrase(plural, past) {
     var verb = randomChoice(verbs);
     if (past) {
         return verb[2];
@@ -62,7 +62,7 @@ function correctCase(words) {
 
 function getAdjPositions() {
     var nWords = $("input[name=words]").val();
-    return randomChoices([0, 1, 2], nWords - 3);
+    return randomChoices([0, 1], nWords - 3);
 }
 
 function generate() {
@@ -73,8 +73,8 @@ function generate() {
     var objDef = randomBool();
     var vPast = randomBool();
     var words = nounPhrase(subjPl, subjDef, adjPos.includes(0));
-    words.push(verbPhrase(subjPl, vPast, adjPos.includes(1)));
-    words = words.concat(nounPhrase(objPl, objDef, adjPos.includes(2)));
+    words.push(verbPhrase(subjPl, vPast));
+    words = words.concat(nounPhrase(objPl, objDef, adjPos.includes(1)));
     words = correctCase(words);
     var sentence = words.join($("input[name=separator]").val()) + $("input[name=terminator]").val();
     $("#passphrase_field").val(sentence);
