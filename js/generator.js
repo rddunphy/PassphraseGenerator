@@ -130,5 +130,9 @@ window.onload = function() {
         $("#options").collapse("hide");
     });
     $("#passphrase_field").on("input", evaluate);
+    $("input[name=words]").on("change", generate);
+    $("input[name=case]").on("input", generate);
+    $("input[name=separator]").on("input", generate);
+    $("input[name=terminator]").on("input", generate);
     generate();
 }
