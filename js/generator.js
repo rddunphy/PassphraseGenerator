@@ -61,7 +61,7 @@ function correctCase(words) {
 }
 
 function getAdjPositions() {
-    var nWords = $("input[name=words]").val();
+    var nWords = $("#number_of_words").val();
     return randomChoices([0, 1], nWords - 3);
 }
 
@@ -85,7 +85,11 @@ function evaluate() {
     var pw = $("#passphrase_field").val();
     $("#character_count").html(pw.length);
     var result = zxcvbn(pw);
-    $("#time_to_crack").html(result.crack_times_display.offline_fast_hashing_1e10_per_second);
+    var time_string = result.crack_times_display.offline_fast_hashing_1e10_per_second;
+    if (time_string != "centuries" && time_string != "less than a second") {
+        time_string = "at least " + time_string;
+    }
+    $("#time_to_crack").html(time_string);
     var feedback = [];
     if (result.feedback.warning) {
         feedback.push(result.feedback.warning);
@@ -130,7 +134,7 @@ window.onload = function() {
         $("#options").collapse("hide");
     });
     $("#passphrase_field").on("input", evaluate);
-    $("input[name=words]").on("change", generate);
+    $("#number_of_words").on("input", generate);
     $("input[name=case]").on("input", generate);
     $("input[name=separator]").on("input", generate);
     $("input[name=terminator]").on("input", generate);
