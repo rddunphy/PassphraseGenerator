@@ -11,11 +11,16 @@ function article(plural, definite, vowelSound) {
     return "a";
 }
 
-function nounPhrase(plural, definite, useAdj) { // TODO wrong indef art when no adj
+function nounPhrase(plural, definite, useAdj) {
     var adj_l = randomChoice(adjectives);
     var adj = adj_l[0];
-    var art = article(plural, definite, adj_l[1]);
-    var noun = randomChoice(nouns)[plural ? 1 : 0];
+    var noun_l = randomChoice(nouns);
+    var noun = noun_l[plural ? 1 : 0];
+    if (useAdj) {
+        var art = article(plural, definite, adj_l[1]);
+    } else {
+        var art = article(plural, definite, noun_l[2]);
+    }
     if (useAdj) {
         if (art != "") {
             return [art, adj, noun];
@@ -57,7 +62,7 @@ function correctCase(words) {
 
 function getAdjPositions() {
     var nWords = $("input[name=words]").val();
-    return randomChoices([1, 2, 3], nWords - 3);
+    return randomChoices([0, 1, 2], nWords - 3);
 }
 
 function generate() {
