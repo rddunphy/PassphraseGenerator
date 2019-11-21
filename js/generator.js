@@ -86,10 +86,17 @@ function evaluate() {
     $("#character_count").html(pw.length);
     var result = zxcvbn(pw);
     var time_string = result.crack_times_display.offline_fast_hashing_1e10_per_second;
+    var longer_time_string = result.crack_times_display.online_throttling_100_per_hour;
     if (time_string != "centuries" && time_string != "less than a second") {
         time_string = "at least " + time_string;
     }
     $("#time_to_crack").html(time_string);
+    if (time_string != "centuries") {
+        $("#longer_time_to_crack").html(longer_time_string);
+        $("#longer_time_text").show();
+    } else {
+        $("#longer_time_text").hide();
+    }
     var feedback = [];
     if (result.feedback.warning) {
         feedback.push(result.feedback.warning);
