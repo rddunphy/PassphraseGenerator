@@ -42,6 +42,11 @@ body {
     max-width: 42em;
 }
 
+.ribbon {
+    position: absolute;
+    right: 0;
+}
+
 
 /*
 * Cover
