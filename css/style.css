@@ -53,11 +53,11 @@ body {
     padding: 14rem 1.5rem 0 1.5rem;
 }
 
-#link_row {
+.link-row {
     padding: 0.3rem 0;
 }
 
-#link_row a, a:focus, a:hover {
+.link-row a, a:focus, a:hover {
     color: #444;
 }
 
@@ -72,6 +72,10 @@ body {
 .card {
     max-height: 250px;
     overflow-y: auto;
+}
+
+.faq-content {
+    padding-bottom: 8px;
 }
 
 /*
