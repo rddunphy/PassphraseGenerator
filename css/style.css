@@ -52,7 +52,7 @@ body {
 * Cover
 */
 .cover {
-    padding: 15rem 1.5rem 0 1.5rem;
+    padding: 14rem 1.5rem 0 1.5rem;
 }
 
 #link_row {
@@ -65,6 +65,11 @@ body {
 
 .title-bar {
     padding-bottom: 30px;
+}
+
+.card {
+    max-height: 250px;
+    overflow-y: auto;
 }
 
 /*
