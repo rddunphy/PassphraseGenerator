@@ -123,6 +123,13 @@ function copyToClipboard() {
 }
 
 window.onload = function() {
+    $(".wrapper").on("scroll", function () {
+        if ($(".wrapper").scrollTop() > 0) {
+            $(".ribbon").addClass("hidden");
+        } else {
+            $(".ribbon").removeClass("hidden");
+        }
+    });
     $("#generate_button").on("click", generate);
     $("#copy_button").on("click", copyToClipboard);
     $("#faq_link").on("click", function() {

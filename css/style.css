@@ -49,8 +49,13 @@ body {
 .ribbon {
     position: absolute;
     right: 0;
+    opacity: 1;
+    transition: opacity 0.5s;
 }
 
+.ribbon.hidden {
+    opacity: 0;
+}
 
 /*
 * Cover
