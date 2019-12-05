@@ -50,11 +50,18 @@ body {
 * Cover
 */
 .cover {
-    padding: 14rem 1.5rem 0 1.5rem;
+    padding: 0 1.5rem 0 1.5rem;
+    position: relative;
+    top: 30%;
 }
 
 .link-row {
     padding: 0.3rem 0;
+}
+
+.link-row .col-4 {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .link-row a, a:focus, a:hover {
@@ -89,4 +96,36 @@ body {
     height: 20px;
     width: 20px;
     margin-bottom: 0.2em;
+}
+
+/*
+ * Mobile adjustments
+ */
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: small;
+    }
+
+    .cover {
+        top: 15%;
+    }
+
+    .ribbon-img {
+        height: 60%;
+        width: 60%;
+        float: right;
+    }
+
+    .jumbotron-heading {
+        font-size: large;
+        font-weight: 300;
+    }
+
+    h5 {
+        font-size: medium;
+    }
+
+    .mastfoot {
+        font-size: x-small;
+    }
 }

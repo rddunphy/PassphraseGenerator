@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="ribbon">
-            <a href="https://github.com/rddunphy/PassphraseGenerator"><img height="20%"  src="https://github.blog/wp-content/uploads/2008/12/forkme_right_gray_6d6d6d.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+            <a href="https://github.com/rddunphy/PassphraseGenerator"><img src="https://github.blog/wp-content/uploads/2008/12/forkme_right_gray_6d6d6d.png?resize=149%2C149" class="ribbon-img attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
         </div>
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
             <main role="main" class="inner cover">
@@ -31,27 +31,24 @@
                     </div>
                 </div>
 
-                <div class="d-flex flex-row justify-content-center">
-                    <div class="p-4">
-                        <div class="text-left"><a href="javascript:;" id="eval_link"><span id="character_count"></span> characters</a>
-                        </div>
+                <div class="row link-row">
+                    <div class="col-4 text-left">
+                        <a href="javascript:;" id="eval_link"><span id="character_count"></span> characters</a>
                     </div>
-                    <div class="p-4">
-                        <div class="text-center"><a href="javascript:;" id="options_link">Options</a>
-                        </div>
+                    <div class="col-4 text-center">
+                        <a href="javascript:;" id="options_link">Options</a>
                     </div>
-                    <div class="p-4">
-                        <div class="text-right"><a href="javascript:;" id="faq_link">Wait, what?</a>
-                        </div>
+                    <div class="col-4 text-right">
+                        <a href="javascript:;" id="faq_link">Wait, what?</a>
                     </div>
                 </div>
 
-                <div id="evaluation" class="collapse"><div class="card card-body">
+                <div id="evaluation" class="row collapse"><div class="card card-body">
                     <p>This password would take <span id="time_to_crack"></span> to crack, according to <a href="https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/wheeler">zxcvbn</a> by Dropbox.<span id="longer_time_text"> (But over a throttled internet connection it would take <span id="longer_time_to_crack"></span>.)</span></p>
                     <p id="feedback_paragraph"></p>
                 </div></div>
 
-                <div id="options" class="collapse"><div class="card card-body">
+                <div id="options" class="row collapse"><div class="card card-body">
                     <div class="form-group row">
                         <label for="words" class="col-sm-6 col-form-label">Number of words (without articles)</label>
                         <div class="col-sm-6">
@@ -97,7 +94,7 @@
                     </div>
                 </div></div></div>
 
-                <div id="faq" class="collapse"><div class="card card-body"><div class="faq-content">
+                <div id="faq" class="row collapse"><div class="card card-body"><div class="faq-content">
                     <h5>What's a passphrase?</h5>
                     <p>Passphrases are short sequences of common words that can be used as passwords. Because they are longer and more memorable than the sorts of passwords most people choose, they are generally considered to be <a href="https://xkcd.com/936/">more secure</a>.</p>
 
