@@ -119,7 +119,7 @@ body {
     }
 
     .cover {
-        margin-top: 10%;
+        margin-top: 30%;
     }
 
     .ribbon-img {
@@ -153,5 +153,11 @@ body {
     .input-group-lg .form-control,.btn {
         padding: .375rem .75rem !important;
         font-size: 1rem !important;
+    }
+
+    @media (orientation: landscape) {
+        .cover {
+            margin-top: 5%;
+        }
     }
 }
