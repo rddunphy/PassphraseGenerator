@@ -49,8 +49,13 @@ body {
 .ribbon {
     position: absolute;
     right: 0;
+    opacity: 1;
+    transition: opacity 0.5s;
 }
 
+.ribbon.hidden {
+    opacity: 0;
+}
 
 /*
 * Cover
@@ -104,6 +109,7 @@ body {
     margin-bottom: 0.2em;
 }
 
+
 /*
  * Mobile adjustments
  */
@@ -113,7 +119,7 @@ body {
     }
 
     .cover {
-        margin-top: 20%;
+        margin-top: 10%;
     }
 
     .ribbon-img {
@@ -139,5 +145,13 @@ body {
 
     .mastfoot {
         font-size: x-small;
+    }
+
+    /* Nasty hack to make password input group smaller on mobile devices.
+    This manually overrides values for .input-group-lg with default bootstrap
+    values for .input-group-md */
+    .input-group-lg .form-control,.btn {
+        padding: .375rem .75rem !important;
+        font-size: 1rem !important;
     }
 }
