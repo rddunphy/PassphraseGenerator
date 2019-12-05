@@ -104,8 +104,8 @@ body {
 }
 
 .inline-icon {
-    height: 20px;
-    width: 20px;
+    height: 1.5em;
+    width: 1.5em;
     margin-bottom: 0.2em;
 }
 
@@ -119,13 +119,21 @@ body {
     }
 
     .cover {
-        margin-top: 10%;
+        margin-top: 30%;
     }
 
     .ribbon-img {
         height: 60%;
         width: 60%;
         float: right;
+    }
+
+    /* Nasty hack to make password input group smaller on mobile devices.
+    This manually overrides values for .input-group-lg with default bootstrap
+    values for .input-group-md */
+    .input-group-lg .form-control,.btn {
+        padding: .375rem .75rem !important;
+        font-size: 1rem !important;
     }
 
     .jumbotron-heading {
@@ -147,11 +155,9 @@ body {
         font-size: x-small;
     }
 
-    /* Nasty hack to make password input group smaller on mobile devices.
-    This manually overrides values for .input-group-lg with default bootstrap
-    values for .input-group-md */
-    .input-group-lg .form-control,.btn {
-        padding: .375rem .75rem !important;
-        font-size: 1rem !important;
+    @media (orientation: landscape) {
+        .cover {
+            margin-top: 5%;
+        }
     }
 }
