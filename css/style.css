@@ -95,6 +95,7 @@ body {
 */
 .mastfoot {
     opacity: 0.8;
+    font-size: small;
 }
 
 .inline-icon {
