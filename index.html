@@ -24,24 +24,24 @@
                 <div class="row">
                     <div class="input-group input-group-lg">
                         <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary" type="button" id="generate_button"><span class="fas fa-sync"></span></button>
+                        <button class="btn btn-outline-secondary" type="button" id="generate_button" data-toggle="tooltip" title="Generate a new passphrase"><span class="fas fa-sync"></span></button>
                         </div>
                         <input type="text" id="passphrase_field" maxlength=100 class="form-control text-center"></input>
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="copy_button"><span class="fas fa-copy"></span></button>
+                            <button class="btn btn-outline-secondary" type="button" id="copy_button" data-toggle="tooltip" title="Copy to clipboard"><span class="fas fa-copy"></span></button>
                         </div>
                     </div>
                 </div>
 
                 <div class="row link-row">
                     <div class="col-4 text-left">
-                        <a href="javascript:;" id="eval_link"><span id="character_count">0</span> characters</a>
+                        <a href="javascript:;" id="eval_link" data-toggle="tooltip" title="Evaluate"><span id="character_count">0</span> characters</a>
                     </div>
                     <div class="col-4 text-center">
-                        <a href="javascript:;" id="options_link">Options</a>
+                        <a href="javascript:;" id="options_link" data-toggle="tooltip" title="Generator options">Options</a>
                     </div>
                     <div class="col-4 text-right">
-                        <a href="javascript:;" id="faq_link">Wait, what?</a>
+                        <a href="javascript:;" id="faq_link" data-toggle="tooltip" title="FAQs">Wait, what?</a>
                     </div>
                 </div>
 
@@ -64,15 +64,15 @@
                     <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label for="separator" class="col-sm-9 col-form-label" title="Space between words">Separator</label>
+                            <label for="separator" class="col-sm-9 col-form-label" data-toggle="tooltip" title="Space between words">Separator</label>
                             <div class="col-sm-3">
-                                <input type="text" name="separator" value=" " maxlength=10 class="form-control" title="Space between words"></input>
+                                <input type="text" name="separator" value=" " maxlength=10 class="form-control" data-toggle="tooltip" title="Space between words"></input>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="terminator" class="col-sm-9 col-form-label" title="Added to end of passphrase">Terminator</label>
+                            <label for="terminator" class="col-sm-9 col-form-label" data-toggle="tooltip" title="Added to end of passphrase">Terminator</label>
                             <div class="col-sm-3">
-                                <input type="text" name="terminator" value="." maxlength=10 class="form-control" title="Added to end of passphrase"></input>
+                                <input type="text" name="terminator" value="." maxlength=10 class="form-control" data-toggle="tooltip" title="Added to end of passphrase"></input>
                             </div>
                         </div>
                     </div>
