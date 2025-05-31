@@ -11,6 +11,10 @@ function article(plural, definite, vowelSound) {
     return "a";
 }
 
+function conjunction() {
+    return randomChoice(["and", "or", "with", "without"]);
+}
+
 function nounPhrase(plural, definite, useAdj) {
     var adj_l = randomChoice(adjectives);
     var adj = adj_l[0];
@@ -60,13 +64,15 @@ function correctCase(words) {
     return words;
 }
 
-function getAdjPositions() {
-    var nWords = $("#number_of_words").val();
-    return randomChoices([0, 1], nWords - 3);
+function getAdjPositions(nNounPhrases, nAdjectives) {
+    return randomChoices(Array.from({ length: nNounPhrases }, (_, index) => index), nAdjectives);
 }
 
 function generate() {
-    var adjPos = getAdjPositions();
+    var nWords = $("#number_of_words").val();
+    var nNounPhrases = Math.ceil((nWords - 1) / 2);
+    var nAdjectives = nWords - 1 - nNounPhrases;
+    var adjPos = getAdjPositions(nNounPhrases, nAdjectives);
     var subjPl = randomBool();
     var subjDef = randomBool();
     var objPl = randomBool();
@@ -74,7 +80,12 @@ function generate() {
     var vPast = randomBool();
     var words = nounPhrase(subjPl, subjDef, adjPos.includes(0));
     words.push(verbPhrase(subjPl, vPast));
-    words = words.concat(nounPhrase(objPl, objDef, adjPos.includes(1)));
+    for (k = 1; k < nNounPhrases; k++) {
+        words = words.concat(nounPhrase(objPl, objDef, adjPos.includes(k)));
+        if (k < nNounPhrases - 1) {
+            words.push(conjunction());
+        }
+    }
     words = correctCase(words);
     var sentence = words.join($("input[name=separator]").val()) + $("input[name=terminator]").val();
     $("#passphrase_field").val(sentence);
