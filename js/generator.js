@@ -95,37 +95,6 @@ function generate() {
 function evaluate() {
     var pw = $("#passphrase_field").val();
     $("#character_count").html(pw.length);
-    var result = zxcvbn(pw);
-    var time_string = result.crack_times_display.offline_fast_hashing_1e10_per_second;
-    var longer_time_string = result.crack_times_display.online_throttling_100_per_hour;
-    if (time_string != "centuries" && time_string != "less than a second") {
-        time_string = "at least " + time_string;
-    }
-    $("#time_to_crack").html(time_string);
-    if (time_string != "centuries") {
-        $("#longer_time_to_crack").html(longer_time_string);
-        $("#longer_time_text").show();
-    } else {
-        $("#longer_time_text").hide();
-    }
-    var feedback = [];
-    if (result.feedback.warning) {
-        feedback.push(result.feedback.warning);
-    }
-    if (result.feedback.suggestions) {
-        feedback = feedback.concat(result.feedback.suggestions);
-    }
-    if (feedback.length > 0) {
-        for (var i = 0; i < feedback.length; i++) {
-            if (feedback[i][feedback[i].length - 1] != ".") {
-                feedback[i] += ".";
-            }
-        }
-        $("#feedback_paragraph").html(feedback.join(" "));
-        $("#feedback_paragraph").show();
-    } else {
-        $("#feedback_paragraph").hide();
-    }
 }
 
 function copyToClipboard() {
@@ -152,11 +121,6 @@ window.onload = function() {
         $("#options").collapse("toggle");
         $("#faq").collapse("hide");
         $("#evaluation").collapse("hide");
-    });
-    $("#eval_link").on("click", function() {
-        $("#evaluation").collapse("toggle");
-        $("#faq").collapse("hide");
-        $("#options").collapse("hide");
     });
     $("#passphrase_field").on("input", evaluate);
     $("#number_of_words").on("input", generate);
