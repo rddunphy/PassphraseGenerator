@@ -35,28 +35,33 @@
 
                 <div class="row link-row">
                     <div class="col-4 text-left">
-                        <span id="character_count">0</span> characters
+                        <a href="javascript:" id="evaluation_link" data-toggle="tooltip" title="Show sentence evaluation"><span id="character_count">0</span> characters</a>
                     </div>
                     <div class="col-4 text-center">
-                        <a href="javascript:;" id="options_link" data-toggle="tooltip" title="Generator options">Options</a>
+                        <a href="javascript:" id="options_link" data-toggle="tooltip" title="Generator options">Options</a>
                     </div>
                     <div class="col-4 text-right">
-                        <a href="javascript:;" id="faq_link" data-toggle="tooltip" title="FAQ">Wait, what?</a>
+                        <a href="javascript:" id="faq_link" data-toggle="tooltip" title="FAQ">Wait, what?</a>
                     </div>
                 </div>
+
+                <div id="evaluation" class="row collapse"><div class="card card-body">
+                    <p>Entropy: <span id="entropy_field"></span> bits</p>
+                </div></div>
 
                 <div id="options" class="row collapse"><div class="card card-body">
                     <div class="form-group row">
                         <label for="words" class="col-sm-6 col-form-label">Number of words (without articles)</label>
                         <div class="col-sm-6">
                             <select name="words" class="form-control" id="number_of_words">
-                                <option value="3">3 (~33 bits of entropy)</option>
-                                <option value="4">4 (~43 bits of entropy)</option>
-                                <option value="5" selected>5 (~51 bits of entropy)</option>
-                                <option value="6">6 (~63 bits of entropy)</option>
-                                <option value="7">7 (~72 bits of entropy)</option>
-                                <option value="8">8 (~84 bits of entropy)</option>
-                                <option value="9">9 (~93 bits of entropy)</option>
+                                <option value="3">3 (~44 bits of entropy)</option>
+                                <option value="4">4 (~58 bits of entropy)</option>
+                                <option value="5" selected>5 (~73 bits of entropy)</option>
+                                <option value="6">6 (~87 bits of entropy)</option>
+                                <option value="7">7 (~102 bits of entropy)</option>
+                                <option value="8">8 (~116 bits of entropy)</option>
+                                <option value="9">9 (~130 bits of entropy)</option>
+                                <option value="10">10 (~144 bits of entropy)</option>
                             </select>
                         </div>
                     </div>
@@ -136,9 +141,6 @@
         </div>
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/data/nouns.js"></script>
-        <script src="js/data/verbs.js"></script>
-        <script src="js/data/adjectives.js"></script>
         <script src="js/crypto_random.js"></script>
         <script src="js/generator.js"></script>
     </body>
