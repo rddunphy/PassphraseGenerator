@@ -43,7 +43,7 @@ body {
 }
 
 .cover-container {
-    max-width: 42em;
+    max-width: 65em;
 }
 
 .ribbon {
@@ -62,7 +62,7 @@ body {
 */
 .cover {
     padding: 0 1.5rem 0 1.5rem;
-    margin-top: 40%;
+    margin-top: 25%;
 }
 
 .link-row {
@@ -87,7 +87,7 @@ body {
 }
 
 .card {
-    max-height: 250px;
+    max-height: 350px;
     overflow-y: auto;
 }
 
