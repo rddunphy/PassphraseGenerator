@@ -203,9 +203,13 @@ function evaluate() {
     $("#character_count").html(pw.length);
 }
 
-function copyToClipboard() {
-    $("#passphrase_field").select();
-    document.execCommand("copy");
+async function copyToClipboard() {
+    const type = "text/plain";
+    const clipboardItemData = {
+        [type]: $("#passphrase_field").val(),
+    }
+    const clipboardItem = new ClipboardItem(clipboardItemData);
+    await navigator.clipboard.write([clipboardItem]);
 }
 
 window.onload = function() {
