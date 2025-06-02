@@ -36,12 +36,12 @@ function parseCSV(csvText) {
 }
 
 async function loadWordsFromCSV() {
-    loadedWords.verbs = await fetchAndParseCSV("../data/verbs.csv");
-    loadedWords.nouns = await fetchAndParseCSV("../data/nouns.csv");
-    loadedWords.adjectives = await fetchAndParseCSV("../data/adjectives.csv");
-    loadedWords.adverbs = await fetchAndParseCSV("../data/adverbs.csv");
-    loadedWords.connectives = await fetchAndParseCSV("../data/connectives.csv");
-    const fpath = "../data/mean_entropy_values.json"
+    loadedWords.verbs = await fetchAndParseCSV("data/verbs.csv");
+    loadedWords.nouns = await fetchAndParseCSV("data/nouns.csv");
+    loadedWords.adjectives = await fetchAndParseCSV("data/adjectives.csv");
+    loadedWords.adverbs = await fetchAndParseCSV("data/adverbs.csv");
+    loadedWords.connectives = await fetchAndParseCSV("data/connectives.csv");
+    const fpath = "data/mean_entropy_values.json"
     const response = await fetch(fpath);
     if (!response.ok) {
         console.error(`HTTP error! status: ${response.status} - Could not fetch ${fpath}. Make sure the file exists in the data directory.`);
