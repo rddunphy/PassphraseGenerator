@@ -1,0 +1,274 @@
+{
+    "max_word_length_5": [
+        {
+            "num_words": 3,
+            "entropy": 33.9
+        },
+        {
+            "num_words": 4,
+            "entropy": 45.0
+        },
+        {
+            "num_words": 5,
+            "entropy": 56.5
+        },
+        {
+            "num_words": 6,
+            "entropy": 67.6
+        },
+        {
+            "num_words": 7,
+            "entropy": 79.1
+        },
+        {
+            "num_words": 8,
+            "entropy": 90.1
+        },
+        {
+            "num_words": 9,
+            "entropy": 101.3
+        },
+        {
+            "num_words": 10,
+            "entropy": 112.6
+        }
+    ],
+    "max_word_length_6": [
+        {
+            "num_words": 3,
+            "entropy": 35.9
+        },
+        {
+            "num_words": 4,
+            "entropy": 48.3
+        },
+        {
+            "num_words": 5,
+            "entropy": 60.5
+        },
+        {
+            "num_words": 6,
+            "entropy": 72.6
+        },
+        {
+            "num_words": 7,
+            "entropy": 84.5
+        },
+        {
+            "num_words": 8,
+            "entropy": 96.9
+        },
+        {
+            "num_words": 9,
+            "entropy": 108.7
+        },
+        {
+            "num_words": 10,
+            "entropy": 120.6
+        }
+    ],
+    "max_word_length_7": [
+        {
+            "num_words": 3,
+            "entropy": 37.5
+        },
+        {
+            "num_words": 4,
+            "entropy": 50.5
+        },
+        {
+            "num_words": 5,
+            "entropy": 63.5
+        },
+        {
+            "num_words": 6,
+            "entropy": 76.1
+        },
+        {
+            "num_words": 7,
+            "entropy": 89.1
+        },
+        {
+            "num_words": 8,
+            "entropy": 101.6
+        },
+        {
+            "num_words": 9,
+            "entropy": 113.9
+        },
+        {
+            "num_words": 10,
+            "entropy": 126.6
+        }
+    ],
+    "max_word_length_8": [
+        {
+            "num_words": 3,
+            "entropy": 38.6
+        },
+        {
+            "num_words": 4,
+            "entropy": 52.0
+        },
+        {
+            "num_words": 5,
+            "entropy": 65.2
+        },
+        {
+            "num_words": 6,
+            "entropy": 78.5
+        },
+        {
+            "num_words": 7,
+            "entropy": 91.6
+        },
+        {
+            "num_words": 8,
+            "entropy": 104.7
+        },
+        {
+            "num_words": 9,
+            "entropy": 117.6
+        },
+        {
+            "num_words": 10,
+            "entropy": 130.9
+        }
+    ],
+    "max_word_length_9": [
+        {
+            "num_words": 3,
+            "entropy": 39.4
+        },
+        {
+            "num_words": 4,
+            "entropy": 53.1
+        },
+        {
+            "num_words": 5,
+            "entropy": 66.7
+        },
+        {
+            "num_words": 6,
+            "entropy": 80.2
+        },
+        {
+            "num_words": 7,
+            "entropy": 93.5
+        },
+        {
+            "num_words": 8,
+            "entropy": 107.0
+        },
+        {
+            "num_words": 9,
+            "entropy": 120.8
+        },
+        {
+            "num_words": 10,
+            "entropy": 133.6
+        }
+    ],
+    "max_word_length_10": [
+        {
+            "num_words": 3,
+            "entropy": 39.9
+        },
+        {
+            "num_words": 4,
+            "entropy": 54.0
+        },
+        {
+            "num_words": 5,
+            "entropy": 67.5
+        },
+        {
+            "num_words": 6,
+            "entropy": 81.5
+        },
+        {
+            "num_words": 7,
+            "entropy": 95.3
+        },
+        {
+            "num_words": 8,
+            "entropy": 108.8
+        },
+        {
+            "num_words": 9,
+            "entropy": 122.3
+        },
+        {
+            "num_words": 10,
+            "entropy": 135.9
+        }
+    ],
+    "max_word_length_12": [
+        {
+            "num_words": 3,
+            "entropy": 40.4
+        },
+        {
+            "num_words": 4,
+            "entropy": 54.5
+        },
+        {
+            "num_words": 5,
+            "entropy": 68.7
+        },
+        {
+            "num_words": 6,
+            "entropy": 82.4
+        },
+        {
+            "num_words": 7,
+            "entropy": 96.8
+        },
+        {
+            "num_words": 8,
+            "entropy": 110.5
+        },
+        {
+            "num_words": 9,
+            "entropy": 124.5
+        },
+        {
+            "num_words": 10,
+            "entropy": 138.5
+        }
+    ],
+    "max_word_length_-1": [
+        {
+            "num_words": 3,
+            "entropy": 43.6
+        },
+        {
+            "num_words": 4,
+            "entropy": 58.3
+        },
+        {
+            "num_words": 5,
+            "entropy": 72.6
+        },
+        {
+            "num_words": 6,
+            "entropy": 87.3
+        },
+        {
+            "num_words": 7,
+            "entropy": 101.8
+        },
+        {
+            "num_words": 8,
+            "entropy": 116.1
+        },
+        {
+            "num_words": 9,
+            "entropy": 130.2
+        },
+        {
+            "num_words": 10,
+            "entropy": 144.4
+        }
+    ]
+}

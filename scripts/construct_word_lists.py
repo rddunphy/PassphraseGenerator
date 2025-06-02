@@ -26,7 +26,7 @@ def construct_noun_list(fpath, p):
     rows = [(n, *noun_dict[n]) for n in sorted_nouns]
     with open(fpath, "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(["singular", "plural", "article"])
+        writer.writerow(["base", "plural", "article"])
         writer.writerows(rows)
     print(f"Saved {len(sorted_nouns)} nouns to {fpath}.")
 
@@ -48,7 +48,7 @@ def construct_adverb_list(fpath):
     })
     with open(fpath, "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(["adverb"])
+        writer.writerow(["base"])
         writer.writerows([(adv,) for adv in adv_list])
     print(f"Saved {len(adv_list)} adverbs to {fpath}.")
 
@@ -72,7 +72,7 @@ def construct_adjective_list(fpath, p):
     rows = zip(adj_list, articles)
     with open(fpath, "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(["adjective", "article"])
+        writer.writerow(["base", "article"])
         writer.writerows(rows)
     print(f"Saved {len(adj_list)} adjectives to {fpath}.")
 
@@ -100,7 +100,7 @@ def construct_verb_list(fpath):
     rows = [(v, *verb_dict[v]) for v in sorted_verbs]
     with open(fpath, "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(["singular", "plural", "past"])
+        writer.writerow(["base", "plural", "past"])
         writer.writerows(rows)
     print(f"Saved {len(rows)} verbs to {fpath}.")
 
@@ -109,7 +109,7 @@ def construct_connectives_list(fpath):
     words = ["and", "or", "with", "on", "in", "over", "to", "at", "under", "near"]
     with open(fpath, "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(["connective"])
+        writer.writerow(["base"])
         writer.writerows([(word,) for word in words])
     print(f"Saved {len(words)} connectives to {fpath}.")
 

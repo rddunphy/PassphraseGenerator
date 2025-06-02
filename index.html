@@ -26,7 +26,7 @@
                         <div class="input-group-prepend">
                         <button class="btn btn-outline-secondary" type="button" id="generate_button" data-toggle="tooltip" title="Generate a new passphrase"><span class="fas fa-sync"></span></button>
                         </div>
-                        <input type="text" id="passphrase_field" maxlength=100 class="form-control text-center"></input>
+                        <input aria-label="Generated passphrase field" type="text" id="passphrase_field" maxlength=100 class="form-control text-center">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" id="copy_button" data-toggle="tooltip" title="Copy to clipboard"><span class="fas fa-copy"></span></button>
                         </div>
@@ -51,17 +51,32 @@
 
                 <div id="options" class="row collapse"><div class="card card-body">
                     <div class="form-group row">
-                        <label for="words" class="col-sm-6 col-form-label">Number of words (without articles)</label>
+                        <label for="number_of_words" class="col-sm-6 col-form-label">Number of words (without articles)</label>
                         <div class="col-sm-6">
                             <select name="words" class="form-control" id="number_of_words">
-                                <option value="3">3 (~44 bits of entropy)</option>
-                                <option value="4">4 (~58 bits of entropy)</option>
-                                <option value="5" selected>5 (~73 bits of entropy)</option>
-                                <option value="6">6 (~87 bits of entropy)</option>
-                                <option value="7">7 (~102 bits of entropy)</option>
-                                <option value="8">8 (~116 bits of entropy)</option>
-                                <option value="9">9 (~130 bits of entropy)</option>
-                                <option value="10">10 (~144 bits of entropy)</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5" selected>5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="max_word_length" class="col-sm-6 col-form-label">Maximum word length</label>
+                        <div class="col-sm-6">
+                            <select name="word_length" class="form-control" id="max_word_length">
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7" selected>7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="12">12</option>
+                                <option value="-1">No maximum</option>
                             </select>
                         </div>
                     </div>
@@ -70,31 +85,31 @@
                         <div class="form-group row">
                             <label for="separator" class="col-sm-9 col-form-label" data-toggle="tooltip" title="Space between words">Separator</label>
                             <div class="col-sm-3">
-                                <input type="text" name="separator" value=" " maxlength=10 class="form-control" data-toggle="tooltip" title="Space between words"></input>
+                                <input type="text" name="separator" id="separator" value=" " maxlength=10 class="form-control" data-toggle="tooltip" title="Space between words">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="terminator" class="col-sm-9 col-form-label" data-toggle="tooltip" title="Added to end of passphrase">Terminator</label>
                             <div class="col-sm-3">
-                                <input type="text" name="terminator" value="." maxlength=10 class="form-control" data-toggle="tooltip" title="Added to end of passphrase"></input>
+                                <input type="text" name="terminator" id="terminator" value="." maxlength=10 class="form-control" data-toggle="tooltip" title="Added to end of passphrase">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" name="case" value="lower" id="case_lower"></input>
+                            <input type="radio" class="form-check-input" name="case" value="lower" id="case_lower">
                             <label class="form-check-label" for="case_lower">lower case</label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" name="case" value="sentence" id="case_sentence" checked></input>
+                            <input type="radio" class="form-check-input" name="case" value="sentence" id="case_sentence" checked>
                             <label class="form-check-label" for="case_sentence">Sentence case</label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" name="case" value="title" id="case_title"></input>
+                            <input type="radio" class="form-check-input" name="case" value="title" id="case_title">
                             <label class="form-check-label" for="case_title">Title Case</label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" name="case" value="upper" id="case_upper"></input>
+                            <input type="radio" class="form-check-input" name="case" value="upper" id="case_upper">
                             <label class="form-check-label" for="case_upper">UPPER CASE</label>
                         </div>
                     </div>
@@ -134,7 +149,7 @@
 
             <footer class="mastfoot mt-auto text-center">
                 <div class="inner">
-                    <p><img src="img/GitHub-Mark-32px.png" class="inline-icon" /> Hosted on <a href="https://github.com/rddunphy/PassphraseGenerator">GitHub</a>.</p>
+                    <p><img src="img/GitHub-Mark-32px.png" alt="GitHub logo" class="inline-icon" /> Hosted on <a href="https://github.com/rddunphy/PassphraseGenerator">GitHub</a>.</p>
                 </div>
             </footer>
         </div>
